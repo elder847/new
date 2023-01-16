@@ -1,6 +1,10 @@
 import csv
+f=open("telephone1.csv",'a')
+wo=csv.writer(f)
+wo.writerow(["S_id", "Name", "Brand", "Type", "Price"])
+f.close()
 def add_record():
-  f=open("telephone.csv",'a',newline='')
+  f=open("telephone1.csv",'a')
   wo=csv.writer(f)
   s_id=int(input("Enter Subscriber ID:"))
   name=input("Enter name of subscriber:")
@@ -8,11 +12,11 @@ def add_record():
   typ=input("Enter customer type:")
   price=float(input("Enter Price:"))
   wo.writerow([s_id,name,brand,typ,price])
-  print("Record addedd .")
+  print("Record has been addedd .")
   f.close()
 
 def display_record():
-  f=open("telephone.csv",'r')
+  f=open("telephone1.csv",'r')
   ro=csv.reader(f)
   l=list(ro)
   for i in range(0,len(l)):
@@ -20,7 +24,7 @@ def display_record():
   f.close()
 
 def search_record():
-  f=open("telephone.csv","r")
+  f=open("telephone1.csv","r")
   ro=csv.reader(f)
   sid=input("Enter id to search:")
   found=0
@@ -48,8 +52,8 @@ def menu():
     elif ch==3:
       search_record()
     elif ch==4:
-      print("Thank you, See you again!!")
+      print("Thank you for using!")
       break
     else:
-      print("Invalid Choice")
+      print("select the valid Choice")
 menu()
